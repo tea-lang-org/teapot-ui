@@ -7,7 +7,7 @@ import pandas
 class DataFrameHandler:
     def init(self, stream):
         stream.seek(0)
-        self.data_frame = pandas.read_csv(stream, nrows=500)
+        self.data_frame = pandas.read_csv(stream)
         self.data_frame.columns = [re.sub("[^0-9a-zA-Z]+", "_", i) for i in self.data_frame.columns]
         self.data_frame.drop_duplicates(inplace=True)
         selected_features, eliminated_features = self.__set_selected_features()
