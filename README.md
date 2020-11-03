@@ -4,6 +4,13 @@ The program does auto-detection of column types, removes identifier columns and 
 
 [Try it out without install](https://dossiers.page/teapot-simplifying-statistical-tests-with-a-click/)
 
+## Installation and running the application 
+* clone/download the repository 
+* create a new environment in python (optional) 
+* pip install -r requirements.txt 
+* cd teapot 
+* streamlit run main.py 
+
 ## Screenshots
 ![data load wine-quality](wine_quality_file_load.jpg "Data Load")
 ![automated test with wine quality data](wine_quality_default_tests.jpg "Default tests")
