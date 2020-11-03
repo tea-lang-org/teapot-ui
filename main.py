@@ -2,7 +2,6 @@ import streamlit as st
 
 from dataframe_handler import DataFrameHandler
 from statistical_module import StatisticalTests
-from store_user_data import FirebaseSaveData
 import SessionState
 
 from enum import Enum
@@ -55,7 +54,6 @@ def main():
     _max_width()
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
     # st.title('Bring Your Own DataSet')
-    userdata = dict()
     st.markdown('# Let us brew some statistical tests')
     st.markdown('<hr style="height:5px;border-width:0;color:black;background-color:gray"> ', unsafe_allow_html=True)
 
@@ -73,8 +71,7 @@ def main():
         st.dataframe(dataframe_handler.data_frame.head(5))
         st.image('tea2.png', width=200, caption='Select target/outcome variable')
         columns = dataframe_handler.get_columns()
-        userdata['data_columns'] = columns
-        firebase_data = FirebaseSaveData()
+
 
         target_variable = st.selectbox('Target/Outcome', options=columns, index=len(columns) - 1)
         dataframe_handler.set_target(target_variable)
@@ -136,7 +133,6 @@ def main():
         else:
             st.markdown('### No custom tea could be served with this data')
         userdata['custom_test']=experimental_design
-        firebase_data.save_user_data(userdata)
 
 if __name__ == "__main__":
     main()
