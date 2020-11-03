@@ -4,14 +4,6 @@ from dataframe_handler import DataFrameHandler
 from statistical_module import StatisticalTests
 import SessionState
 
-from enum import Enum
-
-class Status(Enum):
-    INIT = 1
-    DATA_LOADED = 2
-    SET_TARGET = 3
-    START_ANALYSIS = 4
-    END_ANALYSIS=5
 
 def _max_width():
     max_width_str = f"max-width: 85%;"
@@ -53,8 +45,8 @@ def main():
     """
     _max_width()
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-    # st.title('Bring Your Own DataSet')
-    st.markdown('# Let us brew some statistical tests')
+    st.markdown('# TeaPot. A drag and drop statistical test UI')
+    st.markdown('## Let us start brewing')
     st.markdown('<hr style="height:5px;border-width:0;color:black;background-color:gray"> ', unsafe_allow_html=True)
 
     upload_file =SessionState.get(uploaded=False)
@@ -133,6 +125,6 @@ def main():
         else:
             st.markdown('### No custom tea could be served with this data')
         userdata['custom_test']=experimental_design
-
+    st.markdown('<h4 align = "center"><a href="https://dossiers.page">Visit Dossiers for more demos</a> </h1>', unsafe_allow_html=True)
 if __name__ == "__main__":
     main()
